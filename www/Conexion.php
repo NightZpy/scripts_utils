@@ -154,6 +154,15 @@ class Conexion
         return $this->seleccionarDatos($strQuery);
     }
 
+    public function getLenFromFieldTable($table = '', $nColumn = -1)
+    {
+        $result = mysql_query("SELECT * FROM $table");
+        if(!$result)
+            return NULL;
+
+        return mysql_field_len($result, $nColumn);
+    }
+
     //Getters and Setters
     public function getConexion() {
         return $this->conexion;

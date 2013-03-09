@@ -1,0 +1,14 @@
+Warning: DocumentRoot [C:/BitNami WAMPStack/apache2/docs/dummy-host.example.com] does not exist
+Warning: DocumentRoot [C:/BitNami WAMPStack/apache2/docs/dummy-host2.example.com] does not exist
+[Fri Mar 08 18:47:12 2013] [notice] Apache/2.2.22 (Win32) mod_ssl/2.2.22 OpenSSL/0.9.8t PHP/5.3.15 configured -- resuming normal operations
+[Fri Mar 08 18:47:12 2013] [notice] Server built: Jan 28 2012 11:16:39
+[Fri Mar 08 18:47:12 2013] [notice] Parent: Created child process 1424
+Warning: DocumentRoot [C:/BitNami WAMPStack/apache2/docs/dummy-host.example.com] does not exist
+Warning: DocumentRoot [C:/BitNami WAMPStack/apache2/docs/dummy-host2.example.com] does not exist
+Warning: DocumentRoot [C:/BitNami WAMPStack/apache2/docs/dummy-host.example.com] does not exist
+Warning: DocumentRoot [C:/BitNami WAMPStack/apache2/docs/dummy-host2.example.com] does not exist
+[Fri Mar 08 18:47:13 2013] [notice] Child 1424: Child process is running
+[Fri Mar 08 18:47:13 2013] [notice] Child 1424: Acquired the start mutex.
+[Fri Mar 08 18:47:13 2013] [notice] Child 1424: Starting 64 worker threads.
+[Fri Mar 08 18:47:13 2013] [notice] Child 1424: Starting thread to listen on port 443.
+[Fri Mar 08 18:47:13 2013] [notice] Child 1424: Starting thread to listen on port 80.

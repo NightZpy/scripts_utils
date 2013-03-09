@@ -2,14 +2,6 @@
 include_once 'Conexion.php';
 include_once 'Fecha.php';
 
-$db = 'blog';
-$conexion = new Conexion('root', '18990567', $db, 'localhost');
-
-$tablas = $conexion->getTablesName();
-
-/**
-* 
-*/
 class LoadRandomFixtures extends Conexion
 {
 	private $text;
@@ -107,6 +99,10 @@ Suspendisse posuere consequat leo sed vestibulum. In hac habitasse platea dictum
 ?>
 <h1>Cargando Base Datos: <?php echo $db; ?></h1>
 <?php
+
+$db = 'blog';
+$conexion = new Conexion('root', '18990567', $db, 'localhost');
+$tablas = $conexion->getTablesName();
 $load = new LoadRandomFixtures('root', '18990567', $db, 'localhost', $text);
 $nRegs = 10;
 foreach ($tablas as $tabla){

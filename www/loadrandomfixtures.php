@@ -1,31 +1,12 @@
 <?php
-	include_once 'Conexion.php';
-	include_once 'Fecha.php';
+include_once 'Conexion.php';
+include_once 'Fecha.php';
 
-	$db = 'blog';
-	$conexion = new Conexion('root', '18990567', $db, 'localhost');
+$db = 'blog';
+$conexion = new Conexion('root', '18990567', $db, 'localhost');
 
-	$tablas = $conexion->getTablesName();
-?>
+$tablas = $conexion->getTablesName();
 
-<h1>Base Datos: <?php echo $db; ?></h1>
-<!--<table>
-	<tr>
-		<th>Tablas</th>
-	</tr>	
-	<?php foreach ($tablas as $tabla): ?>
-	<tr>
-		<td><strong><em><?php echo $tabla; ?></em></strong></td>
-		<?php $campos = $conexion->getColumnsForTable($tabla); ?>
-		<?php foreach ($campos as $campo): ?>
-		<td><?php echo $campo['Field']; ?></td>
-		<?php endforeach; ?>
-	</tr>
-	<?php endforeach; ?>	
-</table>-->
-
-
-<?php
 /**
 * 
 */
@@ -123,10 +104,15 @@ Proin urna nibh, euismod vel rutrum in, ultricies at tortor. Phasellus vestibulu
 Aenean pharetra consequat ligula, sed ullamcorper tellus porta vel. Morbi cursus lacus at nulla elementum commodo. Suspendisse potenti. Ut venenatis augue eget nisl laoreet feugiat. Mauris ornare sem eget felis ultricies vestibulum at vitae magna. Nunc id massa velit. Sed augue dolor, imperdiet ut tincidunt eget, sagittis et ligula. Fusce auctor orci quis lectus euismod fermentum. Quisque vel diam leo. Nam eget nibh ligula, cursus tempus nisi.
 Mauris nisl dui, iaculis vestibulum congue id, pellentesque vel enim. Integer consequat lobortis pharetra. Curabitur molestie sollicitudin mollis. Praesent vel nisl sapien. Etiam dictum justo euismod enim auctor lobortis. Nam imperdiet elit ut lectus facilisis tempor. Nullam erat metus, volutpat a fermentum ut, viverra id diam. Nam viverra felis in eros sagittis tincidunt. Sed eleifend elit in diam egestas fringilla. Curabitur a ante in velit facilisis mollis.
 Suspendisse posuere consequat leo sed vestibulum. In hac habitasse platea dictumst. Aliquam ornare cursus lacus, a elementum nisi rhoncus nec. Mauris mattis augue vitae arcu ullamcorper in fringilla elit porta. Pellentesque ac lectus non elit dignissim facilisis. Sed et auctor tortor. Nunc vel facilisis orci. Nulla facilisi. Donec commodo nullam.';
-
+?>
+<h1>Cargando Base Datos: <?php echo $db; ?></h1>
+<?php
 $load = new LoadRandomFixtures('root', '18990567', $db, 'localhost', $text);
 $nRegs = 10;
 foreach ($tablas as $tabla){
+?>
+	<h2>Cargando Tabla: <?php echo $tabla; ?></h2>
+<?php
 	for ($i=0; $i < $nRegs; $i++)
 		if($conexion->agregarRegistro($load->load($tabla))) echo "<br />Agregado!";
 }

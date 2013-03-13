@@ -1083,3 +1083,17 @@ Warning: DocumentRoot [C:/BitNami WAMPStack/apache2/docs/dummy-host2.example.com
 [Sat Mar 09 01:43:34.386365 2013] [:error] [pid 6740:tid 972] [client ::1:58802] PHP Warning:  substr() expects parameter 3 to be long, string given in F:\\Proyectos\\Webs\\scripts_utils\\www\\loadrandomfixtures.php on line 82, referer: http://localhost:8080/scripts/
 [Sat Mar 09 01:43:34.386365 2013] [:error] [pid 6740:tid 972] [client ::1:58802] PHP Warning:  substr() expects parameter 3 to be long, string given in F:\\Proyectos\\Webs\\scripts_utils\\www\\loadrandomfixtures.php on line 82, referer: http://localhost:8080/scripts/
 [Sat Mar 09 01:43:34.386365 2013] [:error] [pid 6740:tid 972] [client ::1:58802] PHP Warning:  substr() expects parameter 3 to be long, string given in F:\\Proyectos\\Webs\\scripts_utils\\www\\loadrandomfixtures.php on line 82, referer: http://localhost:8080/scripts/
+Warning: DocumentRoot [C:/BitNami WAMPStack/apache2/docs/dummy-host.example.com] does not exist
+Warning: DocumentRoot [C:/BitNami WAMPStack/apache2/docs/dummy-host2.example.com] does not exist
+[Wed Mar 13 16:41:35 2013] [notice] Apache/2.2.22 (Win32) mod_ssl/2.2.22 OpenSSL/0.9.8t PHP/5.3.15 configured -- resuming normal operations
+[Wed Mar 13 16:41:35 2013] [notice] Server built: Jan 28 2012 11:16:39
+[Wed Mar 13 16:41:35 2013] [notice] Parent: Created child process 5984
+Warning: DocumentRoot [C:/BitNami WAMPStack/apache2/docs/dummy-host.example.com] does not exist
+Warning: DocumentRoot [C:/BitNami WAMPStack/apache2/docs/dummy-host2.example.com] does not exist
+Warning: DocumentRoot [C:/BitNami WAMPStack/apache2/docs/dummy-host.example.com] does not exist
+Warning: DocumentRoot [C:/BitNami WAMPStack/apache2/docs/dummy-host2.example.com] does not exist
+[Wed Mar 13 16:41:37 2013] [notice] Child 5984: Child process is running
+[Wed Mar 13 16:41:37 2013] [notice] Child 5984: Acquired the start mutex.
+[Wed Mar 13 16:41:37 2013] [notice] Child 5984: Starting 64 worker threads.
+[Wed Mar 13 16:41:37 2013] [notice] Child 5984: Starting thread to listen on port 443.
+[Wed Mar 13 16:41:37 2013] [notice] Child 5984: Starting thread to listen on port 80.

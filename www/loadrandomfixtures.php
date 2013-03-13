@@ -26,7 +26,7 @@ class LoadRandomFixtures extends Conexion
 			//echo "<br />FieldName: $fieldName - FielType: $fieldType - FieldLen: $fieldLen";
 			if($cf == 0) {
 				$strFields .= $fieldName;
-				$strValues .= $this->getDataFromType($fieldType, $fieldLen, $extra);
+				$strValues .= $this->getDataFromType($fieldType, $fieldLen, $extra, $table, $count);
 			}
 			else {
 				$strFields .= ', '.$fieldName;
@@ -49,7 +49,8 @@ class LoadRandomFixtures extends Conexion
 		//$strData = '';
 		//echo "<br /><b>Tipo: $type</b>";
 		if (strpos($type, 'varchar') !== FALSE || strpos($type, 'char') !== FALSE) {
-			return "'".substr(substr($table, 0, $size - 1) + $count, 0)."'";
+			$str = substr($table, 0, $size - 1);
+			return "'".substr($str.$count, 0)."'";
 			//return "'".substr($this->text, 0, $size)."'";
 		} elseif (strpos($type, 'tinytext') !== FALSE || strpos($type, 'tinyblob') !== FALSE || 
 				  strpos($type, 'text') !== FALSE || strpos($type, 'blob') !== FALSE ||
@@ -87,10 +88,6 @@ class LoadRandomFixtures extends Conexion
 	}
 }
 
-?>
-<h1>Cargando Base Datos: <?php echo $db; ?></h1>
-<?php
-
 $text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae feugiat lacus. Nam euismod quam vitae ligula pretium ac malesuada mauris mollis. Fusce ornare sollicitudin aliquam. Sed mauris nisi, eleifend vitae iaculis id, ultricies sed metus. Proin sit amet velit vitae est pellentesque tristique ut eget lectus. Phasellus molestie rhoncus nisl et sodales. Maecenas elit velit, feugiat eget blandit at, sagittis vel velit. Curabitur ut sem vitae arcu gravida facilisis et ut erat. Aenean gravida pretium nisi eu mollis. Curabitur nisi ante, tempor et convallis eget, gravida nec eros. Nam placerat euismod sapien, ac consectetur diam consequat ut.
 Mauris eleifend molestie leo pellentesque pharetra. Curabitur sem quam, adipiscing quis condimentum id, porttitor id lectus. Aliquam erat volutpat. Aliquam placerat dignissim erat id semper. Aliquam erat volutpat. In augue justo, elementum ut tincidunt id, lobortis eu elit. Aliquam dui lacus, molestie id hendrerit non, tincidunt quis felis. Nunc tempus sem aliquet eros egestas vitae lacinia dolor egestas.
 Aenean suscipit, felis quis pharetra aliquet, urna massa facilisis augue, vel lacinia enim risus eget magna. Phasellus rhoncus lacinia purus, non dignissim lorem iaculis ac. Praesent vitae nibh nunc. Etiam eget hendrerit mauris. Donec orci felis, auctor ut bibendum eget, lacinia a nisi. Aenean lorem velit, posuere eu ultrices ut, faucibus a tellus. Donec elit felis, pulvinar at tincidunt nec, vehicula porta libero. Nulla gravida erat id arcu mollis fermentum. Aliquam posuere tempus metus, at lacinia mi fermentum quis. Quisque rutrum ultricies magna, lacinia bibendum enim cursus nec. Proin libero neque, vestibulum ac ornare pulvinar, posuere id purus.
@@ -102,21 +99,38 @@ Mauris nisl dui, iaculis vestibulum congue id, pellentesque vel enim. Integer co
 Suspendisse posuere consequat leo sed vestibulum. In hac habitasse platea dictumst. Aliquam ornare cursus lacus, a elementum nisi rhoncus nec. Mauris mattis augue vitae arcu ullamcorper in fringilla elit porta. Pellentesque ac lectus non elit dignissim facilisis. Sed et auctor tortor. Nunc vel facilisis orci. Nulla facilisi. Donec commodo nullam.';
 
 $db = 'mercosur';
-//$conexion = new Conexion('bashman', '123456', $db, 'mercosur.localhost');
+
+?>
+<h1>Cargando Base Datos: <?php echo $db; ?></h1>
+<?php
+
+$conexion = new Conexion('mercosur', '123456', $db, 'mercosur.localhost');
 //$tablas = $conexion->getTablesName();
-$tablas = array('paises', 'estados', 'ramos', 'rubros', 'tipo_instituciones', 'localidades', 'direcciones', 'empresas',
-				'personas', 'mesas', 'horarios', 'encuentros', 'productos', 'demandas', 'ofertas',
+$chars = 'abcdefghijklmnop';
+
+for($i=1; $i<9; $i++){
+	for($j=0; $j<strlen($chars); $j++){
+		$c = $chars[$j];
+		$str = "INSERT INTO mesas (id, fila, columna) VALUES (default, $i, '$c')";
+		//echo "<br />$str";
+		//if($conexion->agregarRegistro($str)) echo "<br />Agregado!";
+	}	
+}
+/*
+$tablas = array('mesas', 'tipo_documentos', 'paises', 'estados', 'ramos', 'rubros', 
+				'tipo_instituciones', 'localidades', 'direcciones', 'empresas',
+				'personas', 'encuentros', 'productos', 'demandas', 'ofertas',
 				'reuniones', 'ofertantes', 'demandantes', 'empresas_rubros');
 
 
-$load = new LoadRandomFixtures('bashman', '123456', $db, 'mercosur.localhost', $text);
+$load = new LoadRandomFixtures('mercosur', '123456', $db, '192.168.1.105', $text);
 $nRegs = 10;
 foreach ($tablas as $tabla){
 ?>
 	<h2>Cargando Tabla: <?php echo $tabla; ?></h2>
 <?php
 	for ($i=1; $i < $nRegs; $i++)
-		if($conexion->agregarRegistro($load->load($tabla), $i)) echo "<br />Agregado!";
-}
+		if($conexion->agregarRegistro($load->load($tabla, $i))) echo "<br />Agregado!";
+}*/
 ?>
 
